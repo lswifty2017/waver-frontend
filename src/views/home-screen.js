@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import Button from "../components/button/index";
 import { colors } from "../modules/colors";
+import { fonts } from "../modules/fonts";
 import ProfileAvatar from "../components/profile-avatar/index";
 import maniImage from "../../assets/images/mani.jpeg";
 
@@ -11,6 +12,7 @@ const Container = styled.View`
   padding: 10px;
   align-items: center;
   justify-content: flex-start;
+  font-family: ${fonts.primaryFontFamily};
 `;
 
 const ProfileContainer = styled.View`
@@ -33,22 +35,23 @@ const ProfileLocation = styled.Text`
 `;
 
 const ButtonContainer = styled.View`
-  padding-bottom: 160px;
+  padding-bottom: 100px;
 `;
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <Container>
       <ProfileContainer>
         <ProfileAvatar image={maniImage} radius="80" />
         <ProfileName>Mani Balasubramaniam</ProfileName>
-        <ProfileLocation>Melbourne, Australia</ProfileLocation>
+        <ProfileLocation>Pipeline, Australia</ProfileLocation>
       </ProfileContainer>
       <ButtonContainer>
         <Button
           text="Surf Report"
           bgColor={colors.componentBackground}
           textColor={colors.fontColorPrimary}
+          onPress={() => navigation.navigate("Reports")}
         />
         <Button
           text="My Sessions"

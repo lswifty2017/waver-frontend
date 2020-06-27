@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
 
-const Button = ({ bgColor = "white", text = "", textColor = "black" }) => {
+const Button = ({
+  bgColor = "white",
+  text = "",
+  textColor = "black",
+  onPress
+}) => {
   const Button = styled.TouchableOpacity`
     background-color: ${bgColor};
     width: 265px;
@@ -20,7 +25,7 @@ const Button = ({ bgColor = "white", text = "", textColor = "black" }) => {
   `;
 
   return (
-    <Button>
+    <Button onPress={onPress}>
       <ButtonText>{text}</ButtonText>
     </Button>
   );
