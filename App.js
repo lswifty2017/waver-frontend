@@ -38,7 +38,12 @@ export default function App() {
     // </AppContainer>
 
     <NavigationContainer theme={appTheme}>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator
+        initialRouteName="Home"
+        // screenOptions={{
+        //   headerShown: false
+        // }}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Reports" component={ReportsScreen} />
       </Stack.Navigator>

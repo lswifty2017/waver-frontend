@@ -27,7 +27,10 @@ const ReportsScreen = ({ navigation }) => {
     <ReportsContainer>
       <Reports
         data={data}
-        renderItem={({ item, index, separators }) => <ReportCard id={index} />}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index, separators }) => (
+          <ReportCard datetime="Monday 6:30am" beach="Torquay" />
+        )}
       />
     </ReportsContainer>
   );
