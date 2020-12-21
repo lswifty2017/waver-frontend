@@ -31,18 +31,12 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    // <AppContainer>
-    //   <ReportScreen />
-    //   {/* <HomeScreen /> */}
-    //   <StatusBar hidden={true} />
-    // </AppContainer>
-
     <NavigationContainer theme={appTheme}>
       <Stack.Navigator
         initialRouteName="Home"
-        // screenOptions={{
-        //   headerShown: false
-        // }}
+      // screenOptions={{
+      //   headerShown: false
+      // }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Reports" component={ReportsScreen} />

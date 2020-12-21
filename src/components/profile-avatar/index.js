@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Image } from "react-native";
 
 const ProfileAvatar = ({ image, radius }) => {
   const Avatar = styled.Image`

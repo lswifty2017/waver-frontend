@@ -1,7 +1,6 @@
-export default mockData = [
+const mockData = [
   {
-    date: "27/06/2020",
-    time: "06:00",
+    dateTime: "Monday 9:00am",
     beach: "Torquay",
     surfHeight: "3",
     tide: "low",
@@ -9,8 +8,7 @@ export default mockData = [
     windDirection: "N"
   },
   {
-    date: "28/06/2020",
-    time: "09:00",
+    dateTime: "Tuesday 3:00pm",
     beach: "Jan Juc",
     surfHeight: "4",
     tide: "high",
@@ -18,3 +16,5 @@ export default mockData = [
     windDirection: "E"
   }
 ];
+
+export default mockData;

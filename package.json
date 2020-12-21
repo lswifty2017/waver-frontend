@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "svgr": "npx @svgr/cli -d assets/react-svgs/ assets/raw-svgs"
+    "svgr": "npx @svgr/cli --native -d assets/react-svgs/ assets/raw-svgs"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
@@ -22,7 +22,8 @@
     "react-native-screens": "~2.2.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-web": "~0.11.7",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "react-native-svg": "11.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

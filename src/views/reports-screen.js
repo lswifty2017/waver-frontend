@@ -9,7 +9,7 @@ const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 const ReportsContainer = styled.View`
-  padding: ${width / 30}px;
+  padding: ${width / 20}px;
 `;
 
 const Reports = styled.FlatList`
@@ -22,15 +22,13 @@ const Heading = styled.Text`
   color: ${colors.fontColorPrimary};
 `;
 
-const ReportsScreen = ({ navigation }) => {
+const ReportsScreen = ({ navigation, reportData }) => {
   return (
     <ReportsContainer>
       <Reports
         data={data}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item, index, separators }) => (
-          <ReportCard datetime="Monday 6:30am" beach="Torquay" />
-        )}
+        renderItem={({ item, index, separators }) => <ReportCard {...item} />}
       />
     </ReportsContainer>
   );
