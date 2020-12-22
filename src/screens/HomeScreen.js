@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
-import Button from "../components/button/index";
+import Button from "../components/Button";
 import { colors } from "../modules/colors";
 import { fonts } from "../modules/fonts";
-import ProfileAvatar from "../components/profile-avatar/index";
+import ProfileAvatar from "../components/ProfileAvatar";
 import maniImage from "../../assets/images/mani.jpeg";
 
 const Container = styled.View`

@@ -5,8 +5,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import styled from "styled-components/native";
 import { colors } from "./src/modules/colors";
 import { fonts } from "./src/modules/fonts";
-import HomeScreen from "./src/views/home-screen";
-import ReportsScreen from "./src/views/reports-screen";
+import HomeScreen from "./src/screens/HomeScreen";
+import ReportsScreen from "./src/screens/ReportsScreen";
+import PreferencesScreen from './src/screens/PreferencesScreen';
+import SessionsScreen from './src/screens/SessionsScreen';
 
 const appStyles = {
   flex: 1,
@@ -33,13 +35,15 @@ export default function App() {
   return (
     <NavigationContainer theme={appTheme}>
       <Stack.Navigator
-        initialRouteName="Home"
-      // screenOptions={{
-      //   headerShown: false
-      // }}
+        initialRouteName="Reports"
+        screenOptions={{
+          headerShown: false
+        }}
+        mode='card'
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Preferences" component={PreferencesScreen} options={{ gestureDirection: 'horizontal-inverted' }} />
         <Stack.Screen name="Reports" component={ReportsScreen} />
+        <Stack.Screen name="Sessions" component={SessionsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

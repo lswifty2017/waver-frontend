@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
-import { colors } from "../../modules/colors";
-import shoulderHeadWaves from "../../../assets/icons/shoulder-head-waves.png";
+import { colors } from "../modules/colors";
+import shoulderHeadWaves from "../../assets/icons/shoulder-head-waves.png";
 
 const ReportCard = ({
   dateTime,
