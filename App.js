@@ -7,8 +7,8 @@ import { colors } from "./src/modules/colors";
 import { fonts } from "./src/modules/fonts";
 import HomeScreen from "./src/screens/HomeScreen";
 import ReportsScreen from "./src/screens/ReportsScreen";
-import PreferencesScreen from './src/screens/PreferencesScreen';
-import SessionsScreen from './src/screens/SessionsScreen';
+import PreferencesScreen from "./src/screens/PreferencesScreen";
+import SessionsScreen from "./src/screens/SessionsScreen";
 
 const appStyles = {
   flex: 1,
@@ -39,9 +39,13 @@ export default function App() {
         screenOptions={{
           headerShown: false
         }}
-        mode='card'
+        mode="card"
       >
-        <Stack.Screen name="Preferences" component={PreferencesScreen} options={{ gestureDirection: 'horizontal-inverted' }} />
+        <Stack.Screen
+          name="Preferences"
+          component={PreferencesScreen}
+          options={{ gestureDirection: "horizontal-inverted" }}
+        />
         <Stack.Screen name="Reports" component={ReportsScreen} />
         <Stack.Screen name="Sessions" component={SessionsScreen} />
       </Stack.Navigator>
