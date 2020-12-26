@@ -2,7 +2,7 @@ const mockData = [
   {
     dateTime: "Monday 9:00am",
     beach: "Torquay",
-    surfHeight: "3",
+    surfHeight: 3,
     tide: "low",
     windSpeed: "5",
     windDirection: "N"
@@ -10,7 +10,7 @@ const mockData = [
   {
     dateTime: "Tuesday 3:00pm",
     beach: "Jan Juc",
-    surfHeight: "4",
+    surfHeight: 1,
     tide: "high",
     windSpeed: "20",
     windDirection: "E"

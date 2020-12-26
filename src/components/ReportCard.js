@@ -1,7 +1,36 @@
 import React from "react";
 import styled from "styled-components/native";
 import { colors } from "../modules/colors";
-import shoulderHeadWaves from "../../assets/icons/shoulder-head-waves.png";
+import ReportIcon from "../components/ReportIcon";
+
+const ReportCardWrapper = styled.TouchableOpacity`
+  background-color: ${colors.componentBackground};
+  margin-bottom: 24px;
+  border-radius: 10px;
+  box-shadow: 6px 6px 2px #b8a1a129;
+  padding: 15px;
+`;
+
+const ReportIcons = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+`;
+
+const Header = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 12px;
+`;
+
+const HeaderText = styled.Text`
+  color: ${({ secondary }) =>
+    secondary ? colors.fontColorSecondary : colors.fontColorPrimary};
+  font-weight: bold;
+  font-size: 16px;
+`;
 
 const ReportCard = ({
   dateTime,
@@ -11,51 +40,20 @@ const ReportCard = ({
   windSpeed,
   windDirection
 }) => {
-  const ReportCard = styled.TouchableOpacity`
-    background-color: ${colors.componentBackground};
-    margin-bottom: 24px;
-    border-radius: 10px;
-    box-shadow: 6px 6px 2px #b8a1a129;
-    padding: 15px;
-  `;
-
-  const DateTimeText = styled.Text`
-    margin-bottom: 8px;
-    color: ${colors.fontColorSecondary};
-    font-weight: bold;
-    font-size: 16px;
-  `;
-
-  const BeachText = styled.Text`
-    margin-bottom: 24px;
-    color: ${colors.fontColorPrimary};
-    font-weight: bold;
-    font-size: 16px;
-  `;
-
-  const ReportIcons = styled.View`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 10px;
-  `;
-  const ReportIcon = styled.Image`
-    width: 80px;
-    height: 80px;
-    border-radius: ${80 / 2}px;
-    padding: 10px;
-  `;
-
   return (
-    <ReportCard>
-      <DateTimeText>{dateTime}</DateTimeText>
-      <BeachText>{beach}</BeachText>
+    <ReportCardWrapper>
+      <Header>
+        <HeaderText secondary={true}>{dateTime}</HeaderText>
+        <HeaderText>{beach}</HeaderText>
+      </Header>
       <ReportIcons>
-        <ReportIcon source={shoulderHeadWaves}></ReportIcon>
-        <ReportIcon></ReportIcon>
-        <ReportIcon></ReportIcon>
+        <ReportIcon surfHeight={surfHeight}></ReportIcon>
+        <ReportIcon
+          windConditions={{ speed: windSpeed, direction: windDirection }}
+        ></ReportIcon>
+        <ReportIcon tideConditions={{ currentTide: tide }}></ReportIcon>
       </ReportIcons>
-    </ReportCard>
+    </ReportCardWrapper>
   );
 };
 

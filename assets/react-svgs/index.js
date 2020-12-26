@@ -1,6 +1,7 @@
 export { default as AnkleHighSurf } from './AnkleHighSurf'
 export { default as CleanCondition } from './CleanCondition'
 export { default as FingerWalk } from './FingerWalk'
+export { default as HeadHighSurf } from './HeadHighSurf'
 export { default as MidHighTide } from './MidHighTide'
 export { default as SampleBeach } from './SampleBeach'
 export { default as Settings } from './Settings'
