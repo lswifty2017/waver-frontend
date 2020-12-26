@@ -3,6 +3,9 @@ import { View } from "react-native";
 import styled from "styled-components/native";
 import { colors } from "../modules/colors";
 import NavigationDots from "../components/NavigationDots";
+import GestureRecognizer, {
+  swipeDirections
+} from "react-native-swipe-gestures";
 
 const NavgationBarContainer = styled.View`
   display: flex;
@@ -24,49 +27,56 @@ const NavigationButtonText = styled.Text`
   margin-top: 4px;
 `;
 
-const NavgiationDotsContainer = styled.View`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-const NavigationDotsText = styled.Text`
-  color: ${colors.white};
-  margin: 12px;
-  font-size: 16px;
-`;
-
 const NavigationBar = ({ navigation, leftNav, rightNav, navDots, color }) => {
+  const onSwipe = direction => {
+    switch (direction) {
+      case "right":
+        navigation.navigate(leftNav.path, { transition: "vertical" });
+        break;
+      case "left":
+        navigation.navigate(rightNav.path);
+      default:
+        break;
+    }
+  };
+
   return (
-    <NavgationBarContainer>
-      <View>
-        {leftNav && (
-          <NavigationButton
-            alignment="left"
-            onPress={() => navigation.navigate(leftNav.path)}
-          >
-            {leftNav.icon}
-            <NavigationButtonText>{leftNav.text}</NavigationButtonText>
-          </NavigationButton>
+    <GestureRecognizer
+      onSwipeLeft={() => rightNav && onSwipe("left")}
+      onSwipeRight={() => leftNav && onSwipe("right")}
+    >
+      <NavgationBarContainer>
+        <View>
+          {leftNav && (
+            <NavigationButton
+              alignment="left"
+              onPress={() => navigation.navigate(leftNav.path)}
+            >
+              {leftNav.icon}
+              <NavigationButtonText>{leftNav.text}</NavigationButtonText>
+            </NavigationButton>
+          )}
+        </View>
+        {navDots && (
+          <NavigationDots
+            total={navDots.total}
+            title={navDots.title}
+            activeDot={navDots.activeDot}
+            color={color}
+          />
         )}
-      </View>
-      {navDots && (
-        <NavigationDots
-          total={navDots.total}
-          title={navDots.title}
-          activeDot={navDots.activeDot}
-          color={color}
-        />
-      )}
-      <View>
-        {rightNav && (
-          <NavigationButton onPress={() => navigation.navigate(rightNav.path)}>
-            {rightNav.icon}
-            <NavigationButtonText>{rightNav.text}</NavigationButtonText>
-          </NavigationButton>
-        )}
-      </View>
-    </NavgationBarContainer>
+        <View>
+          {rightNav && (
+            <NavigationButton
+              onPress={() => navigation.navigate(rightNav.path)}
+            >
+              {rightNav.icon}
+              <NavigationButtonText>{rightNav.text}</NavigationButtonText>
+            </NavigationButton>
+          )}
+        </View>
+      </NavgationBarContainer>
+    </GestureRecognizer>
   );
 };
 

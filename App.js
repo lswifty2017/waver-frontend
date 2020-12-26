@@ -5,7 +5,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import styled from "styled-components/native";
 import { colors } from "./src/modules/colors";
 import { fonts } from "./src/modules/fonts";
-import HomeScreen from "./src/screens/HomeScreen";
 import ReportsScreen from "./src/screens/ReportsScreen";
 import PreferencesScreen from "./src/screens/PreferencesScreen";
 import SessionsScreen from "./src/screens/SessionsScreen";

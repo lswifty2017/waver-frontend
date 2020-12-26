@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 import { colors } from "../modules/colors";
 import ReportIcon from "../components/ReportIcon";
+import BeachInfographic from "../components/BeachInfographic";
+import Button from "../components/Button";
+import { Shaka, FingerWalk } from "../../assets/react-svgs/index";
 
 const ReportCardWrapper = styled.TouchableOpacity`
   background-color: ${colors.componentBackground};
@@ -32,6 +35,12 @@ const HeaderText = styled.Text`
   font-size: 16px;
 `;
 
+const ButtonsContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 const ReportCard = ({
   dateTime,
   beach,
@@ -53,6 +62,11 @@ const ReportCard = ({
         ></ReportIcon>
         <ReportIcon tideConditions={{ currentTide: tide }}></ReportIcon>
       </ReportIcons>
+      <BeachInfographic />
+      <ButtonsContainer>
+        <Button svg={<FingerWalk />} />
+        <Button svg={<Shaka />} />
+      </ButtonsContainer>
     </ReportCardWrapper>
   );
 };
