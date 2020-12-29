@@ -16,7 +16,10 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lswift.waver",
+      "buildNumber": "1.0.0"
+    },
+    "description": ""
   }
 }
